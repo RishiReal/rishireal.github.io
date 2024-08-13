@@ -4,10 +4,10 @@ I'm a freshman at Cornell University, majoring in Computer Science and Statistic
 
 Professionally, I aim to become an astronaut and/or contribute to advancements in space exploration through software. 
 
-##Right Now:
+## Right Now:
 - Developing a fitness app to track workouts, diet, and training intensity and volume.
 
-##Before:
+## Before:
 - Designed and programmed an autonomous robot and interviewed researchers for an article on AlphaFold and AI at MITES Semester @ MIT
 - Investigated the runtime and accuracy of various neighbor-joining implementations for phylogeny @ UConn's Computational Biology Research Laboratory
 - Coded for my FRC Robotics Team
