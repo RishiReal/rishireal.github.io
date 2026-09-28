@@ -4,565 +4,404 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rishik Gowrishetti</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <meta name="description" content="Rishik Gowrishetti: Cornell statistics and CS student working on machine learning and uncertainty quantification at NASA Goddard." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     :root {
-      --bg: #ffffff;
-      --surface: #f8f9fa;
-      --border: #dee2e6;
-      --ink: #212529;
-      --mid: #495057;
-      --muted: #6c757d;
-      --accent: #0076df;
-      --accent-hover: #0056b8;
-      --tag-bg: #e9ecef;
-      --nav-h: 62px;
+      --paper: #ffffff;
+      --wash: #f5f7fb;
+      --ink: #1a2433;
+      --mid: #4a5566;
+      --muted: #717b8c;
+      --rule: #e4e7ec;
+      --accent: #2b59c3;
+      --accent-dark: #1f4396;
+      --band: #dce5f8;
+      --nav-h: 60px;
+      --serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 1.5rem); }
 
     body {
-      background: var(--bg);
+      background: var(--paper);
       color: var(--ink);
-      font-family: 'Nunito Sans', sans-serif;
-      font-weight: 300;
-      font-size: 15px;
-      line-height: 1.7;
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
     a { color: var(--accent); text-decoration: none; }
-    a:hover { color: var(--accent-hover); text-decoration: underline; }
+    a:hover { color: var(--accent-dark); text-decoration: underline; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
 
     /* NAV */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
       height: var(--nav-h);
-      background: rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.94);
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      padding: 0 2rem;
-      gap: 2rem;
+      border-bottom: 1px solid var(--rule);
     }
-
+    .nav-inner {
+      max-width: 920px; height: 100%; margin: 0 auto; padding: 0 2rem;
+      display: flex; align-items: center; gap: 1.5rem;
+    }
     .nav-brand {
-      font-family: 'Nunito', sans-serif;
-      font-weight: 600;
-      font-size: 1.05rem;
-      color: var(--ink);
-      white-space: nowrap;
-      margin-right: auto;
-      text-decoration: none;
+      font-family: var(--serif); font-weight: 600; font-size: 1.1rem;
+      color: var(--ink); white-space: nowrap; margin-right: auto;
     }
-
-    .nav-links { display: flex; gap: 0.2rem; list-style: none; }
-
+    .nav-brand:hover { color: var(--ink); text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 0.15rem; list-style: none; overflow-x: auto; scrollbar-width: none; }
+    .nav-links::-webkit-scrollbar { display: none; }
     .nav-links a {
-      font-size: 0.88rem;
-      font-weight: 400;
-      color: var(--mid);
-      padding: 0.35rem 0.75rem;
-      border-radius: 6px;
-      transition: background 0.15s, color 0.15s;
-      text-decoration: none;
+      display: block; font-size: 0.9rem; color: var(--mid);
+      padding: 0.35rem 0.7rem; border-radius: 6px; white-space: nowrap;
     }
-    .nav-links a:hover { background: var(--surface); color: var(--ink); text-decoration: none; }
+    .nav-links a:hover { background: var(--wash); color: var(--ink); text-decoration: none; }
 
-    /* LAYOUT */
-    .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+    .container { max-width: 920px; margin: 0 auto; padding: 0 2rem; }
 
-    /* PROFILE */
-    #about { padding: 4rem 0 3rem; }
+    /* HERO */
+    #about { padding: 3.5rem 0 1rem; }
+    .profile-grid { display: grid; grid-template-columns: 170px 1fr; gap: 2.75rem; align-items: start; }
+    .profile-side { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
 
-    .profile-grid {
-      display: grid;
-      grid-template-columns: 185px 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-
-    .profile-img-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.2rem;
-    }
-
-    /* FLIP CARD */
     .flip-card {
-      width: 160px;
-      height: 160px;
-      perspective: 600px;
-      cursor: pointer;
-      flex-shrink: 0;
+      width: 160px; height: 160px; perspective: 600px; cursor: pointer;
+      border: none; background: none; border-radius: 50%;
     }
-
-    .flip-inner {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 0.5s ease;
-    }
-
-    .flip-card.flipped .flip-inner {
-      transform: rotateY(180deg);
-    }
-
-    .flip-front, .flip-back {
-      position: absolute;
-      inset: 0;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-    }
-
-    .flip-back {
-      transform: rotateY(180deg);
-    }
-
+    .flip-inner { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.5s ease; }
+    .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+    .flip-front, .flip-back { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+    .flip-back { transform: rotateY(180deg); }
     .flip-front img, .flip-back img {
-      display: block;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--border);
+      display: block; width: 160px; height: 160px; border-radius: 50%;
+      object-fit: cover; border: 3px solid var(--rule);
     }
+    .flip-hint { font-size: 0.75rem; color: var(--muted); margin-top: -0.4rem; }
 
-    .social-icons { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
-
+    .social-icons { display: flex; gap: 0.5rem; }
     .social-icons a {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      color: var(--mid);
-      transition: border-color 0.15s, color 0.15s, background 0.15s;
-      text-decoration: none;
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid var(--rule); color: var(--mid);
+      display: flex; align-items: center; justify-content: center; font-size: 0.9rem;
     }
-    .social-icons a:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: #e8f0fe;
-      text-decoration: none;
-    }
+    .social-icons a:hover { border-color: var(--accent); color: var(--accent); background: var(--wash); text-decoration: none; }
 
     .profile-name {
-      font-family: 'Nunito', sans-serif;
-      font-weight: 600;
-      font-size: 2rem;
-      color: var(--ink);
-      margin-bottom: 0.3rem;
-      line-height: 1.15;
+      font-family: var(--serif); font-weight: 600;
+      font-size: clamp(2rem, 4.5vw, 2.6rem); line-height: 1.1; letter-spacing: -0.01em;
+      margin-bottom: 0.4rem;
+    }
+    .profile-affil { color: var(--mid); font-size: 0.98rem; }
+    .profile-bio { margin-top: 1.1rem; color: var(--mid); max-width: 60ch; }
+    .profile-bio p + p { margin-top: 0.7rem; }
+
+
+    /* Signature graphic: posterior band */
+    .band-figure { margin: 2.75rem 0 0.5rem; }
+    .band-figure svg { display: block; width: 100%; height: auto; }
+    .band-figure .band { fill: var(--band); }
+    .band-figure .mean { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; }
+    .band-figure circle { fill: var(--paper); stroke: var(--ink); stroke-width: 1.5; }
+    @media (prefers-reduced-motion: no-preference) {
+      .band-figure .mean { stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: draw 1.8s ease-out 0.2s forwards; }
+      .band-figure .band { opacity: 0; animation: fade 1s ease-out 1s forwards; }
+      @keyframes draw { to { stroke-dashoffset: 0; } }
+      @keyframes fade { to { opacity: 1; } }
     }
 
-    .profile-affil { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.15rem; }
-    .profile-affil a { color: var(--muted); }
-    .profile-affil a:hover { color: var(--accent); }
-
-    .profile-bio {
-      margin-top: 1.2rem;
-      font-size: 0.92rem;
-      color: var(--mid);
-      line-height: 1.8;
-      max-width: 540px;
-    }
-
-    /* SECTION */
-    .section { padding: 2.5rem 0; border-top: 1px solid var(--border); }
-
-    .section-heading {
-      font-family: 'Nunito', sans-serif;
-      font-weight: 600;
-      font-size: 1.4rem;
-      color: var(--ink);
-      margin-bottom: 1.5rem;
-    }
+    /* SECTIONS */
+    .section { padding: 2.75rem 0; border-top: 1px solid var(--rule); }
+    .section-heading { font-family: var(--serif); font-weight: 600; font-size: 1.6rem; margin-bottom: 1.6rem; }
+    .section-intro { color: var(--mid); margin: -0.9rem 0 1.6rem; max-width: 62ch; }
 
     /* RESEARCH */
-    .pub-list { display: flex; flex-direction: column; gap: 1.8rem; }
-
-    .pub-item {
-      display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 0 1.5rem;
-      align-items: start;
-    }
-
+    .pub-list { display: flex; flex-direction: column; gap: 2.2rem; }
+    .pub-item { display: grid; grid-template-columns: 150px 1fr; gap: 0 1.6rem; align-items: start; }
     .pub-thumb {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      aspect-ratio: 4/3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      color: var(--border);
+      width: 150px; aspect-ratio: 4/3; object-fit: cover;
+      border: 1px solid var(--rule); border-radius: 6px; background: var(--wash);
     }
-
-    .pub-title { font-weight: 600; color: var(--ink); font-size: 0.92rem; margin-bottom: 0.25rem; line-height: 1.4; }
-    .pub-authors { font-size: 0.83rem; color: var(--muted); margin-bottom: 0.2rem; }
-    .pub-authors strong { color: var(--ink); font-weight: 600; }
-    .pub-venue { font-size: 0.82rem; color: var(--muted); font-style: italic; margin-bottom: 0.5rem; }
-    .pub-desc { font-size: 0.83rem; color: var(--mid); line-height: 1.75; margin-bottom: 0.5rem; }
-
-    .pub-links { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-
+    .pub-title { font-family: var(--serif); font-weight: 600; font-size: 1.12rem; line-height: 1.35; margin-bottom: 0.2rem; }
+    .pub-venue { font-size: 0.88rem; color: var(--muted); margin-bottom: 0.6rem; }
+    .pub-desc { font-size: 0.94rem; color: var(--mid); margin-bottom: 0.4rem; max-width: 64ch; }
+    .pub-links { display: flex; gap: 0.45rem; flex-wrap: wrap; }
     .pub-btn {
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 0.15rem 0.6rem;
-      border-radius: 4px;
-      border: 1px solid var(--border);
-      color: var(--mid);
-      background: var(--bg);
-      cursor: pointer;
-      transition: border-color 0.15s, color 0.15s;
-      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.8rem; font-weight: 500; padding: 0.2rem 0.65rem;
+      border: 1px solid var(--rule); border-radius: 5px; color: var(--mid); background: var(--paper);
     }
-    .pub-btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    a.pub-btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .pub-btn.tag { background: var(--wash); border-color: transparent; }
 
-    /* EXPERIENCE */
-    .exp-list { display: flex; flex-direction: column; gap: 1.6rem; }
-
-    .exp-item {
-      display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 0 1.5rem;
-      align-items: start;
-    }
-
-    .exp-logo {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.6rem;
-      font-weight: 600;
-      color: var(--muted);
-      letter-spacing: 0.04em;
-      text-align: center;
-      padding: 0.5rem;
-      line-height: 1.4;
-    }
-
-    .exp-org { font-weight: 600; font-size: 0.92rem; color: var(--ink); }
-    .exp-role { font-size: 0.85rem; color: var(--mid); }
-    .exp-date { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.3rem; }
-    .exp-desc { font-size: 0.85rem; color: var(--mid); line-height: 1.75; margin-top: 0.35rem; }
-
-    .badge {
-      display: inline-block;
-      font-size: 0.68rem;
-      font-weight: 600;
-      padding: 0.1rem 0.5rem;
-      border-radius: 20px;
-      background: #fff3cd;
-      color: #856404;
-      border: 1px solid #ffc107;
-      margin-left: 0.5rem;
-      vertical-align: middle;
-    }
+    /* EXPERIENCE: a real timeline, so dates lead each row */
+    .exp-list { list-style: none; }
+    .exp-item { padding: 1.25rem 0; border-top: 1px dashed var(--rule); }
+    .exp-item:first-child { border-top: none; padding-top: 0; }
+    .exp-when { margin-left: auto; text-align: right; white-space: nowrap; font-size: 0.86rem; color: var(--muted); }
+    .exp-when span { display: block; }
+    .exp-org { font-weight: 600; font-size: 1rem; }
+    .exp-role { font-size: 0.92rem; color: var(--mid); margin-bottom: 0.45rem; }
+    .exp-head { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.5rem; }
+    .exp-head .exp-role { margin-bottom: 0; }
+    .exp-logo { width: 44px; height: 44px; flex-shrink: 0; object-fit: contain; padding: 4px; background: #fff; border: 1px solid var(--rule); border-radius: 8px; }
+    .exp-desc { color: var(--mid); font-size: 0.93rem; max-width: 64ch; }
+    .exp-links { margin-top: 0.6rem; display: flex; gap: 0.45rem; flex-wrap: wrap; }
 
     /* PROJECTS */
-    .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem 2.25rem; }
+    .project { border-top: 2px solid var(--ink); padding-top: 0.85rem; }
+    .project-name { font-family: var(--serif); font-weight: 600; font-size: 1.08rem; }
+    .project-name a { color: var(--ink); }
+    .project-name a:hover { color: var(--accent); }
+    .project-date { font-size: 0.84rem; color: var(--muted); margin-bottom: 0.45rem; }
+    .project-desc { font-size: 0.92rem; color: var(--mid); }
+    .project-tags { margin-top: 0.7rem; display: flex; flex-wrap: wrap; gap: 0.35rem; }
 
-    .project-card {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.2rem 1.4rem;
-      background: var(--bg);
-      transition: border-color 0.15s, box-shadow 0.15s;
-    }
-    .project-card:hover {
-      border-color: #adb5bd;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    }
 
-    .project-card-name {
-      font-weight: 600;
-      font-size: 0.92rem;
-      color: var(--ink);
-      margin-bottom: 0.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .project-card-name a { color: var(--ink); text-decoration: none; }
-    .project-card-name a:hover { color: var(--accent); }
-
-    .project-card-date { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.6rem; }
-    .project-card-desc { font-size: 0.83rem; color: var(--mid); line-height: 1.7; }
-
-    .project-tags { margin-top: 0.8rem; display: flex; flex-wrap: wrap; gap: 0.3rem; }
-
-    .ptag {
-      font-size: 0.68rem;
-      font-weight: 600;
-      padding: 0.15rem 0.55rem;
-      border-radius: 4px;
-      background: var(--tag-bg);
-      color: var(--mid);
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 1.5rem 0;
-      text-align: center;
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
+    footer { border-top: 1px solid var(--rule); padding: 1.6rem 0; font-size: 0.84rem; color: var(--muted); }
+    footer .container { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
     footer a { color: var(--muted); }
-    footer a:hover { color: var(--accent); }
 
-    /* RESPONSIVE */
-    @media (max-width: 640px) {
-      .profile-grid { grid-template-columns: 1fr; }
-      .profile-img-wrap { flex-direction: row; align-items: center; gap: 1.5rem; }
-      .pub-item, .exp-item { grid-template-columns: 1fr; }
-      .pub-thumb, .exp-logo { display: none; }
+    [hidden] { display: none !important; }
+
+    @media (max-width: 680px) {
+      .nav-inner { padding: 0 1rem; gap: 0.75rem; }
+      .nav-brand { font-size: 1rem; }
+      .container { padding: 0 1.1rem; }
+      #about { padding-top: 2.25rem; }
+      .profile-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .profile-side { flex-direction: row; justify-content: flex-start; gap: 1.25rem; }
+      .flip-card, .flip-front img, .flip-back img { width: 112px; height: 112px; }
+      .flip-hint { display: none; }
+      .profile-side { align-items: center; }
+      .pub-item { grid-template-columns: 1fr; }
+      .exp-head { flex-wrap: wrap; }
+      .pub-thumb { width: 100%; max-width: 320px; margin-bottom: 0.9rem; }
+      .exp-when { flex-basis: 100%; margin-left: 0; text-align: left; white-space: normal; }
+      .exp-when span { display: inline; }
+      .exp-when span + span::before { content: ", "; }
       .projects-grid { grid-template-columns: 1fr; }
-      nav { padding: 0 1rem; }
-      .container { padding: 0 1rem; }
-      .nav-links { gap: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .flip-inner { transition: none; }
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="#about" class="nav-brand">Rishik Gowrishetti</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-    </ul>
+  <nav aria-label="Main">
+    <div class="nav-inner">
+      <a href="#about" class="nav-brand">Rishik Gowrishetti</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <div class="container">
+  <main>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="profile-grid">
-        <div class="profile-img-wrap">
+    <div id="view-home" data-view="home">
+      <div class="container">
 
-          <div class="flip-card" onclick="this.classList.toggle('flipped')">
-            <div class="flip-inner">
-              <div class="flip-front">
-                <img src="professional.jpg" alt="Rishik Gowrishetti" />
+        <section id="about">
+          <div class="profile-grid">
+            <div class="profile-side">
+              <button class="flip-card" type="button" aria-label="Flip photo" onclick="this.classList.toggle('flipped')">
+                <div class="flip-inner">
+                  <div class="flip-front"><img src="professional.jpg" alt="Rishik Gowrishetti" /></div>
+                  <div class="flip-back"><img src="powerlifting.jpg" alt="Rishik competing in powerlifting" style="object-position: top" /></div>
+                </div>
+              </button>
+              <div class="social-icons">
+                <a href="mailto:rg796@cornell.edu" title="Email" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://github.com/rishireal" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com/in/rishikgowrishetti" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="resume.pdf" target="_blank" rel="noopener" title="Resume (PDF)" aria-label="Resume (PDF)"><i class="fa-regular fa-file-lines"></i></a>
               </div>
-              <div class="flip-back">
-                <img src="powerlifting.jpg" alt="Rishik powerlifting" style="object-position: top" />
+            </div>
+
+            <div>
+              <h1 class="profile-name">Rishik Gowrishetti</h1>
+              <p class="profile-affil">Statistical Science and CS minor, Cornell '28</p>
+              <div class="profile-bio">
+                <p>I work on machine learning for scientific problems with a focus on uncertainty quantification. At NASA Goddard, I work on Mars solar wind research and build AI tools for the Artemis III mission. At Cornell, I've researched whether LLM agents can solve physics inverse problems without gradients.</p>
+                <p>Outside research, I compete nationally in USAPL powerlifting. I also run an educational YouTube channel with over 180K subscribers.</p>
               </div>
             </div>
           </div>
 
-          <div class="social-icons">
-            <a href="mailto:rg796@cornell.edu" title="Email"><i class="fa-solid fa-envelope"></i></a>
-            <a href="https://github.com/rishireal" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-            <a href="https://linkedin.com/in/rishikgowrishetti" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <figure class="band-figure" aria-hidden="true">
+            <svg viewBox="0 0 640 180" preserveAspectRatio="none" role="img">
+              <path class="band" d="M0.0,51.4 L8.0,46.7 L16.0,42.9 L24.0,40.3 L32.0,38.8 L40.0,38.5 L48.0,39.1 L56.0,40.4 L64.0,42.1 L72.0,44.0 L80.0,45.8 L88.0,47.7 L96.0,49.6 L104.0,51.6 L112.0,53.8 L120.0,56.2 L128.0,58.8 L136.0,65.3 L144.0,72.9 L152.0,80.1 L160.0,86.6 L168.0,92.0 L176.0,96.1 L184.0,98.5 L192.0,99.4 L200.0,98.7 L208.0,96.8 L216.0,94.2 L224.0,91.2 L232.0,88.3 L240.0,86.2 L248.0,87.0 L256.0,92.3 L264.0,98.6 L272.0,105.3 L280.0,112.2 L288.0,118.8 L296.0,124.6 L304.0,129.3 L312.0,132.7 L320.0,134.6 L328.0,135.1 L336.0,134.3 L344.0,132.4 L352.0,129.4 L360.0,125.6 L368.0,121.0 L376.0,118.4 L384.0,116.1 L392.0,113.3 L400.0,109.9 L408.0,106.1 L416.0,101.7 L424.0,96.7 L432.0,91.0 L440.0,84.7 L448.0,78.0 L456.0,71.1 L464.0,64.3 L472.0,57.9 L480.0,52.4 L488.0,48.0 L496.0,44.8 L504.0,45.3 L512.0,49.4 L520.0,54.2 L528.0,59.3 L536.0,64.2 L544.0,68.3 L552.0,71.2 L560.0,72.7 L568.0,72.4 L576.0,70.6 L584.0,67.4 L592.0,63.1 L600.0,58.3 L608.0,53.4 L616.0,48.8 L624.0,44.9 L632.0,42.0 L640.0,40.1 L640.0,94.4 L632.0,93.3 L624.0,92.3 L616.0,91.3 L608.0,90.0 L600.0,88.4 L592.0,86.6 L584.0,84.8 L576.0,83.0 L568.0,81.6 L560.0,80.7 L552.0,80.4 L544.0,80.7 L536.0,81.6 L528.0,82.8 L520.0,84.3 L512.0,86.0 L504.0,87.8 L496.0,87.3 L488.0,84.6 L480.0,82.6 L472.0,81.5 L464.0,81.7 L456.0,83.5 L448.0,87.2 L440.0,92.7 L432.0,100.1 L424.0,109.1 L416.0,119.1 L408.0,129.6 L400.0,140.0 L392.0,149.9 L384.0,158.6 L376.0,165.8 L368.0,170.5 L360.0,170.7 L352.0,169.0 L344.0,165.8 L336.0,161.1 L328.0,155.5 L320.0,149.3 L312.0,143.2 L304.0,137.6 L296.0,132.9 L288.0,129.3 L280.0,127.0 L272.0,125.7 L264.0,125.4 L256.0,125.7 L248.0,126.6 L240.0,124.3 L232.0,120.1 L224.0,116.3 L216.0,113.0 L208.0,110.4 L200.0,108.5 L192.0,107.5 L184.0,107.2 L176.0,107.5 L168.0,108.0 L160.0,108.5 L152.0,108.6 L144.0,107.9 L136.0,106.3 L128.0,102.6 L120.0,94.3 L112.0,85.5 L104.0,76.7 L96.0,68.4 L88.0,61.2 L80.0,55.6 L72.0,52.0 L64.0,50.7 L56.0,51.8 L48.0,55.2 L40.0,60.4 L32.0,67.3 L24.0,75.3 L16.0,83.9 L8.0,92.9 L0.0,101.9 Z"/>
+              <path class="mean" d="M0.0,76.7 L8.0,69.8 L16.0,63.4 L24.0,57.8 L32.0,53.1 L40.0,49.5 L48.0,47.1 L56.0,46.1 L64.0,46.4 L72.0,48.0 L80.0,50.7 L88.0,54.5 L96.0,59.0 L104.0,64.2 L112.0,69.6 L120.0,75.2 L128.0,80.7 L136.0,85.8 L144.0,90.4 L152.0,94.3 L160.0,97.6 L168.0,100.0 L176.0,101.8 L184.0,102.9 L192.0,103.4 L200.0,103.6 L208.0,103.6 L216.0,103.6 L224.0,103.7 L232.0,104.2 L240.0,105.2 L248.0,106.8 L256.0,109.0 L264.0,112.0 L272.0,115.5 L280.0,119.6 L288.0,124.1 L296.0,128.8 L304.0,133.5 L312.0,137.9 L320.0,141.9 L328.0,145.3 L336.0,147.7 L344.0,149.1 L352.0,149.2 L360.0,148.1 L368.0,145.8 L376.0,142.1 L384.0,137.3 L392.0,131.6 L400.0,125.0 L408.0,117.8 L416.0,110.4 L424.0,102.9 L432.0,95.6 L440.0,88.7 L448.0,82.6 L456.0,77.3 L464.0,73.0 L472.0,69.7 L480.0,67.5 L488.0,66.3 L496.0,66.0 L504.0,66.6 L512.0,67.7 L520.0,69.3 L528.0,71.1 L536.0,72.9 L544.0,74.5 L552.0,75.8 L560.0,76.7 L568.0,77.0 L576.0,76.8 L584.0,76.1 L592.0,74.9 L600.0,73.4 L608.0,71.7 L616.0,70.1 L624.0,68.6 L632.0,67.6 L640.0,67.3"/>
+              <circle cx="70" cy="44.5" r="3.5"/>
+              <circle cx="190" cy="100.3" r="3.5"/>
+              <circle cx="300" cy="128.1" r="3.5"/>
+              <circle cx="440" cy="85.7" r="3.5"/>
+              <circle cx="560" cy="73.7" r="3.5"/>
+            </svg>
+          </figure>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section class="section" id="experience">
+          <h2 class="section-heading">Experience</h2>
+          <ol class="exp-list">
+
+            <li class="exp-item">
+              <div>
+                <div class="exp-head">
+                  <img class="exp-logo" src="nasa.jpg" alt="" onerror="this.remove()" />
+                  <div>
+                    <div class="exp-org">NASA Goddard Space Flight Center</div>
+                    <div class="exp-role">Research Assistant, Machine Learning &amp; Uncertainty Quantification</div>
+                  </div>
+                  <div class="exp-when"><span>Jun – Dec 2026</span><span>Greenbelt, MD</span></div>
+                </div>
+                <p class="exp-desc">Machine learning and uncertainty quantification for Mars solar wind research, plus AI tooling for the Artemis III mission.</p>
+                <div class="exp-links">
+                  <a class="pub-btn" href="https://docs.google.com/presentation/d/e/2PACX-1vRoAZOMh1crJZtic1Yq6UdAeKB3qhsrYf9X0SPLRkZ39e5MujBqwVpO5YigF9C2GQ/pub?start=false&amp;loop=false&amp;delayms=3000" target="_blank" rel="noopener"><i class="fa-regular fa-file-powerpoint"></i>Slides</a>
+                </div>
+              </div>
+            </li>
+
+            <li class="exp-item">
+              <div>
+                <div class="exp-head">
+                  <img class="exp-logo" src="heat_lambda.gif" alt="" onerror="this.remove()" />
+                  <div>
+                    <div class="exp-org">Computational Mechanics &amp; Scientific AI Lab, Cornell</div>
+                    <div class="exp-role">Research Assistant, advised by Prof. Jian-Xun Wang</div>
+                  </div>
+                  <div class="exp-when"><span>Feb – May 2026</span><span>Ithaca, NY</span></div>
+                </div>
+                <p class="exp-desc">Studied whether LLM agents can solve physics inverse problems without gradients.</p>
+                <div class="exp-links">
+                  <a class="pub-btn" href="https://drive.google.com/file/d/1HIOF-HLAIsM-MNfiDT4pAjEVxhBXru6J/view?usp=sharing" target="_blank" rel="noopener"><i class="fa-regular fa-file-pdf"></i>Report</a>
+                  <a class="pub-btn" href="https://github.com/RishiReal/inverse_agent" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>Code</a>
+                </div>
+              </div>
+            </li>
+
+            <li class="exp-item">
+              <div>
+                <div class="exp-head">
+                  <img class="exp-logo" src="mit_oeop_logo.jpeg" alt="" onerror="this.remove()" />
+                  <div>
+                    <div class="exp-org">MIT Introduction to Technology, Engineering, and Science</div>
+                    <div class="exp-role">Online Facilitator</div>
+                  </div>
+                  <div class="exp-when"><span>Jun 2025 – Present</span><span>Remote</span></div>
+                </div>
+                <p class="exp-desc">Mentor a cluster of 12–15 students remotely.</p>
+              </div>
+            </li>
+            <li class="exp-item">
+              <div>
+                <div class="exp-head">
+                  <img class="exp-logo" src="crypto.jpeg" alt="" onerror="this.remove()" />
+                  <div>
+                    <div class="exp-org">Cryptonest, a Google Cloud Platform startup</div>
+                    <div class="exp-role">AI/ML &amp; Quantitative Research Intern</div>
+                  </div>
+                  <div class="exp-when"><span>Jun – Aug 2025</span><span>Houston, TX</span></div>
+                </div>
+                <p class="exp-desc">Built portfolio optimization tools, a market-regime classifier, and an AI agent for portfolio analysis.</p>
+              </div>
+            </li>
+
+            <li class="exp-item">
+              <div>
+                <div class="exp-head">
+                  <img class="exp-logo" src="cloud-1-e1527621761105.jpg" alt="" onerror="this.remove()" />
+                  <div>
+                    <div class="exp-org">University of Connecticut, Computational Biology Lab</div>
+                    <div class="exp-role">Student Researcher</div>
+                  </div>
+                  <div class="exp-when"><span>Jul – Oct 2022</span><span>Storrs, CT</span></div>
+                </div>
+                <p class="exp-desc">Compared neighbor-joining algorithms for building phylogenetic trees.</p>
+              </div>
+            </li>
+
+            <li class="exp-item">
+              <div>
+                <div class="exp-head">
+                  <img class="exp-logo" src="brookfield.png" alt="" onerror="this.remove()" />
+                  <div>
+                    <div class="exp-org">Brookfield Public Schools</div>
+                    <div class="exp-role">Teacher Assistant</div>
+                  </div>
+                  <div class="exp-when"><span>Jul 2022</span><span>Brookfield, CT</span></div>
+                </div>
+                <p class="exp-desc">Helped teach STEM topics to K–5 students.</p>
+              </div>
+            </li>
+
+          </ol>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="section" id="projects">
+          <h2 class="section-heading">Projects</h2>
+          <div class="projects-grid">
+
+            <article class="project">
+              <h3 class="project-name">TerminalTok</h3>
+              <p class="project-date">Oct – Dec 2025</p>
+              <p class="project-desc">A TikTok-style video feed for the terminal, written in OCaml, with a recommender built from scratch.</p>
+              <div class="project-tags"><span class="pub-btn tag">OCaml</span><span class="pub-btn tag">Recommender systems</span></div>
+            </article>
+
+            <article class="project">
+              <h3 class="project-name">Twogether</h3>
+              <p class="project-date">Mar 2026, YHack Spring 2026</p>
+              <p class="project-desc">An SMS-based AI date planner built with multiple LangGraph agents.</p>
+              <div class="project-tags"><span class="pub-btn tag">LangGraph</span><span class="pub-btn tag">Multi-agent</span></div>
+            </article>
+
+            <article class="project">
+              <h3 class="project-name"><a href="https://github.com/RishiReal/INFO-1998-Final-Project" target="_blank" rel="noopener">Powerlifting Total Prediction</a></h3>
+              <p class="project-date">Feb – Apr 2025, INFO 1998</p>
+              <p class="project-desc">Predicting a lifter's next meet total from body weight, sex, and past performance, using 640K+ competition records.</p>
+              <div class="project-tags"><span class="pub-btn tag">Python</span><span class="pub-btn tag">Regression</span></div>
+            </article>
+
+            <article class="project">
+              <h3 class="project-name"><a href="https://github.com/RishiReal/exoplanet-search" target="_blank" rel="noopener">Exoplanet Habitability</a></h3>
+              <p class="project-date">Feb – May 2025, Cornell Data Journal</p>
+              <p class="project-desc">Led a team analyzing 5,000 NASA exoplanets to find the most Earth-like candidates.</p>
+              <div class="project-tags"><span class="pub-btn tag">Python</span><span class="pub-btn tag">R</span></div>
+            </article>
+
+            <article class="project">
+              <h3 class="project-name"><a href="https://github.com/RishiReal/2024-Robot-Code" target="_blank" rel="noopener">FIRST Robotics</a></h3>
+              <p class="project-date">2021 – 2024, captain and programming lead</p>
+              <p class="project-desc">Programmed autonomous driving and computer vision for our competition robot.</p>
+              <div class="project-tags"><span class="pub-btn tag">Java</span><span class="pub-btn tag">Computer vision</span></div>
+            </article>
+
           </div>
+        </section>
 
-        </div>
-
-        <div>
-          <h1 class="profile-name">Rishik Gowrishetti</h1>
-          <p class="profile-affil">B.A. Statistical Science and Computer Science</p>
-          <p class="profile-bio">
-           I'm an undergraduate at Cornell working at the intersection of machine learning and computational science. I'm currently interning at NASA developing statistical and machine learning methods to develop uncertainty quantification tools for the Mars mission. Outside of academia, I am a national-level powerlifter competing in the USAPL. I also enjoy making YouTube videos and have amassed over 180K subscribers. 
-          </p>
-        </div>
-      </div>
-    </section>
-
-   <!-- RESEARCH -->
-<!-- RESEARCH -->
-<section class="section" id="research">
-    <h2 class="section-heading">Research</h2>
-    <div class="pub-list">
-      <div class="pub-item">
-        <img src="heat_lambda.gif" style="width:130px;border:1px solid var(--border);border-radius:6px;object-fit:cover;aspect-ratio:4/3;object-position:10%" />
-        <div>
-          <div class="pub-title">LLM-Based Inverse Recovery of Parameters from Partial Differential Equations</div>
-          <div class="pub-venue">Computational Mechanics &amp; Scientific AI Lab &mdash; 2026, ongoing</div>
-          <p class="pub-desc">
-            Designed an MCP client-server system where an LLM agent iteratively recovers thermal
-            diffusivity &alpha; from temperature profiles governed by the 1D heat equation. The agent
-            queries a finite difference PDE solver as a tool, applying gradient-based parameter updates
-            with adaptive learning rate and CFL-stable time-stepping &mdash; framing inverse estimation
-            as an agentic loop rather than a supervised task.
-          </p>
-          <div class="pub-links">
-            <span class="pub-btn">PDE Solvers</span>
-            <span class="pub-btn">LLM Agents</span>
-            <span class="pub-btn">MCP</span>
-            <span class="pub-btn">Inverse Problems</span>
-          </div>
-        </div>
       </div>
     </div>
-  </section>
 
-    <!-- EXPERIENCE -->
-    <section class="section" id="experience">
-      <h2 class="section-heading">Experience</h2>
-      <div class="exp-list">
-
-        <div class="exp-item">
-            <img src="nasa.jpg" style="width:130px;height:56px;object-fit:contain;border:1px solid var(--border);border-radius:6px;padding:6px;background:var(--surface)" />
-            <div>
-            <div class="exp-org">NASA Goddard Space Flight Center</div>
-            <div class="exp-date">June 2026 - Present &middot; Greenbelt, MD</div>
-            <div class="exp-role">Research Intern</div>
-            <p class="exp-desc">
-              Machine Learning and Uncertainty Quantification for Mars Mission.
-            </p>
-          </div>
-        </div>
-
-        <div class="exp-item">
-            <img src="crypto.jpeg" style="width:130px;height:56px;object-fit:contain;border:1px solid var(--border);border-radius:6px;padding:6px;background:var(--surface)" />
-          <div>
-            <div class="exp-org">Cryptonest &mdash; GCP Startup</div>
-            <div class="exp-date">Jun &ndash; Aug 2025 &middot; Houston, TX</div>
-            <div class="exp-role">AI/ML R&amp;D &amp; Business Development Intern</div>
-            <p class="exp-desc">
-              Built an Efficient Frontier dashboard (Plotly + Flask) with PnL tracking;
-              developed a max-Sharpe rebalancer and random forest regime classifier achieving
-              1.5&times; gains over static portfolios; modularized into a Portfolio Analyzer Agent
-              via MCP and LangGraph.
-            </p>
-          </div>
-        </div>
-
-        <div class="exp-item">
-            <img src="MITES_Identifier.png.webp" style="width:130px;height:56px;object-fit:contain;border:1px solid var(--border);border-radius:6px;padding:6px;background:var(--surface)" />
-          <div>
-            <div class="exp-org">MIT MITES &mdash; Semester Scholar</div>
-            <div class="exp-date">Jun &ndash; Dec 2023 &middot; Cambridge, MA</div>
-            <div class="exp-role">MITES Semester Scholar</div>
-            <p class="exp-desc">
-              Robotics: Designed, built, programmed (C++), and presented an autonomous robot that drew pictures.
-              Science Writing: Interviewed researchers for a written article on AlphaFold and AI.
-            </p>
-          </div>
-        </div>
-
-        <div class="exp-item">
-            <img src="cloud-1-e1527621761105.jpg" style="width:130px;height:56px;object-fit:contain;border:1px solid var(--border);border-radius:6px;padding:6px;background:var(--surface)" />
-          <div>
-            <div class="exp-org">University of Connecticut - Lab of Computational Biology</div>
-            <div class="exp-date">Jul &ndash; Oct 2022 &middot; Storrs, CT</div>
-            <div class="exp-role">Student Researcher</div>
-            <p class="exp-desc">
-              Used Python to investigate the runtime and accuracy of various neighbor-joining
-              implementations for phylogenetic tree construction.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="section" id="projects">
-      <h2 class="section-heading">Projects</h2>
-      <div class="projects-grid">
-
-        <div class="project-card">
-          <div class="project-card-name">
-            <i class="fa-brands fa-github" style="color:var(--muted);font-size:0.85rem"></i>
-            TerminalTok
-          </div>
-          <div class="project-card-date">Oct &ndash; Dec 2025</div>
-          <p class="project-card-desc">
-            OCaml-based TikTok clone for the terminal with a hybrid ML recommender: content-based
-            filtering, collaborative filtering, and matrix factorization built from scratch.
-          </p>
-          <div class="project-tags">
-            <span class="ptag">OCaml</span>
-            <span class="ptag">ML</span>
-            <span class="ptag">Recommender Systems</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-card-name">
-            <i class="fa-solid fa-star" style="color:var(--muted);font-size:0.85rem"></i>
-            <a href="https://github.com/rishireal" target="_blank">Exoplanet Habitability</a>
-          </div>
-          <div class="project-card-date">Feb &ndash; May 2025 &middot; Cornell Data Journal</div>
-          <p class="project-card-desc">
-            Led 5-person team analyzing 5,000 NASA exoplanets for habitability. Identified
-            K2-3 d and LHS 1140 b as top Earth-like candidates. Presented at symposium.
-          </p>
-          <div class="project-tags">
-            <span class="ptag">Python</span>
-            <span class="ptag">R</span>
-            <span class="ptag">Data Analysis</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-card-name">
-            <i class="fa-solid fa-dumbbell" style="color:var(--muted);font-size:0.85rem"></i>
-            <a href="https://github.com/rishireal" target="_blank">Powerlifting Total Prediction</a>
-          </div>
-          <div class="project-card-date">Feb &ndash; Apr 2025</div>
-          <p class="project-card-desc">
-            Predicted meet totals from 640K+ records via linear regression (R&sup2;&nbsp;=&nbsp;0.983).
-            Time-series dataset ordered per athlete to generate a NextTotalKg target.
-          </p>
-          <div class="project-tags">
-            <span class="ptag">Python</span>
-            <span class="ptag">Regression</span>
-            <span class="ptag">pandas</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-card-name">
-            <i class="fa-solid fa-comments" style="color:var(--muted);font-size:0.85rem"></i>
-            Twogether
-          </div>
-          <div class="project-card-date">Mar 2026 &middot; YHack Spring 2026</div>
-          <p class="project-card-desc">
-            SMS-based AI date planning tool. Three-agent architecture (two partner-specific
-            agents + orchestrator) built with LangGraph, Gemini API, and Google Maps/Places.
-          </p>
-          <div class="project-tags">
-            <span class="ptag">LangGraph</span>
-            <span class="ptag">Gemini</span>
-            <span class="ptag">Multi-Agent</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  </div>
+  </main>
 
   <footer>
     <div class="container">
-      &copy; 2026 Rishik Gowrishetti &nbsp;&middot;&nbsp;
+      <span>© 2026 Rishik Gowrishetti</span>
       <a href="mailto:rg796@cornell.edu">rg796@cornell.edu</a>
     </div>
   </footer>
